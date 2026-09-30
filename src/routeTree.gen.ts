@@ -10,13 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as HowPromptsWorkRouteImport } from './routes/how-prompts-work'
 import { Route as ImageRouteImport } from './routes/image'
 import { Route as LabRouteImport } from './routes/lab'
+import { Route as LibraryRouteImport } from './routes/library'
 import { Route as TextRouteImport } from './routes/text'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowPromptsWorkRoute = HowPromptsWorkRouteImport.update({
+  id: '/how-prompts-work',
+  path: '/how-prompts-work',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImageRoute = ImageRouteImport.update({
@@ -29,6 +42,11 @@ const LabRoute = LabRouteImport.update({
   path: '/lab',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TextRoute = TextRouteImport.update({
   id: '/text',
   path: '/text',
@@ -37,35 +55,69 @@ const TextRoute = TextRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/history': typeof HistoryRoute
+  '/how-prompts-work': typeof HowPromptsWorkRoute
   '/image': typeof ImageRoute
   '/lab': typeof LabRoute
+  '/library': typeof LibraryRoute
   '/text': typeof TextRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/history': typeof HistoryRoute
+  '/how-prompts-work': typeof HowPromptsWorkRoute
   '/image': typeof ImageRoute
   '/lab': typeof LabRoute
+  '/library': typeof LibraryRoute
   '/text': typeof TextRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/history': typeof HistoryRoute
+  '/how-prompts-work': typeof HowPromptsWorkRoute
   '/image': typeof ImageRoute
   '/lab': typeof LabRoute
+  '/library': typeof LibraryRoute
   '/text': typeof TextRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/image' | '/lab' | '/text'
+  fullPaths:
+    | '/'
+    | '/history'
+    | '/how-prompts-work'
+    | '/image'
+    | '/lab'
+    | '/library'
+    | '/text'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/image' | '/lab' | '/text'
-  id: '__root__' | '/' | '/image' | '/lab' | '/text'
+  to:
+    | '/'
+    | '/history'
+    | '/how-prompts-work'
+    | '/image'
+    | '/lab'
+    | '/library'
+    | '/text'
+  id:
+    | '__root__'
+    | '/'
+    | '/history'
+    | '/how-prompts-work'
+    | '/image'
+    | '/lab'
+    | '/library'
+    | '/text'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HistoryRoute: typeof HistoryRoute
+  HowPromptsWorkRoute: typeof HowPromptsWorkRoute
   ImageRoute: typeof ImageRoute
   LabRoute: typeof LabRoute
+  LibraryRoute: typeof LibraryRoute
   TextRoute: typeof TextRoute
 }
 
@@ -76,6 +128,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-prompts-work': {
+      id: '/how-prompts-work'
+      path: '/how-prompts-work'
+      fullPath: '/how-prompts-work'
+      preLoaderRoute: typeof HowPromptsWorkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/image': {
@@ -92,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/text': {
       id: '/text'
       path: '/text'
@@ -104,8 +177,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HistoryRoute: HistoryRoute,
+  HowPromptsWorkRoute: HowPromptsWorkRoute,
   ImageRoute: ImageRoute,
   LabRoute: LabRoute,
+  LibraryRoute: LibraryRoute,
   TextRoute: TextRoute,
 }
 export const routeTree = rootRouteImport
