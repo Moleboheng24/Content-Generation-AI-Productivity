@@ -10,7 +10,7 @@ import { studio, useStudio } from "@/lib/store";
 
 export const Route = createFileRoute("/text")({
   head: () => meta("Text Generator — GenAI Studio", "Generate blogs, emails, captions and more with controllable tone, length and audience."),
-  validateSearch: (s: Record<string, unknown>) => ({ id: typeof s.id === "string" ? s.id : undefined }),
+  validateSearch: (s: Record<string, unknown>) => ({ id: typeof s['id'] === "string" ? (s['id'] as string) : undefined }),
   component: TextPage,
 });
 

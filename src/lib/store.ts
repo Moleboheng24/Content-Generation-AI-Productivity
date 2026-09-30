@@ -6,7 +6,7 @@ export type Generation = {
   createdAt: number;
   prompt: string;
   output: string; // text or image data URL
-  meta: Record<string, string>;
+  meta: { label?: string; brief?: string; ratio?: string; [k: string]: string | undefined };
   favourite: boolean;
 };
 
