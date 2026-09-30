@@ -8,7 +8,7 @@ export const Route = createFileRoute("/portfolio")({
   component: Home,
 });
 
-export const SKILLS = ["Python", "SQL", "HTML/CSS", "JavaScript", "Git/GitHub", "Data Analytics", "Artificial Intelligence", "Generative AI", "Prompt Engineering", "Microsoft Office"];
+const SKILLS = ["Python", "SQL", "HTML/CSS", "JavaScript", "Git/GitHub", "Data Analytics", "Artificial Intelligence", "Generative AI", "Prompt Engineering", "Microsoft Office"];
 
 function Home() {
   return (

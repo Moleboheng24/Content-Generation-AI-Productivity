@@ -10,16 +10,38 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CaseStudyRouteImport } from './routes/case-study'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as HowPromptsWorkRouteImport } from './routes/how-prompts-work'
 import { Route as ImageRouteImport } from './routes/image'
 import { Route as LabRouteImport } from './routes/lab'
 import { Route as LibraryRouteImport } from './routes/library'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as ProjectRouteImport } from './routes/project'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as TextRouteImport } from './routes/text'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudyRoute = CaseStudyRouteImport.update({
+  id: '/case-study',
+  path: '/case-study',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HistoryRoute = HistoryRouteImport.update({
@@ -47,6 +69,26 @@ const LibraryRoute = LibraryRouteImport.update({
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectRoute = ProjectRouteImport.update({
+  id: '/project',
+  path: '/project',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkillsRoute = SkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TextRoute = TextRouteImport.update({
   id: '/text',
   path: '/text',
@@ -55,69 +97,118 @@ const TextRoute = TextRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-study': typeof CaseStudyRoute
+  '/contact': typeof ContactRoute
   '/history': typeof HistoryRoute
   '/how-prompts-work': typeof HowPromptsWorkRoute
   '/image': typeof ImageRoute
   '/lab': typeof LabRoute
   '/library': typeof LibraryRoute
+  '/portfolio': typeof PortfolioRoute
+  '/project': typeof ProjectRoute
+  '/projects': typeof ProjectsRoute
+  '/skills': typeof SkillsRoute
   '/text': typeof TextRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-study': typeof CaseStudyRoute
+  '/contact': typeof ContactRoute
   '/history': typeof HistoryRoute
   '/how-prompts-work': typeof HowPromptsWorkRoute
   '/image': typeof ImageRoute
   '/lab': typeof LabRoute
   '/library': typeof LibraryRoute
+  '/portfolio': typeof PortfolioRoute
+  '/project': typeof ProjectRoute
+  '/projects': typeof ProjectsRoute
+  '/skills': typeof SkillsRoute
   '/text': typeof TextRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-study': typeof CaseStudyRoute
+  '/contact': typeof ContactRoute
   '/history': typeof HistoryRoute
   '/how-prompts-work': typeof HowPromptsWorkRoute
   '/image': typeof ImageRoute
   '/lab': typeof LabRoute
   '/library': typeof LibraryRoute
+  '/portfolio': typeof PortfolioRoute
+  '/project': typeof ProjectRoute
+  '/projects': typeof ProjectsRoute
+  '/skills': typeof SkillsRoute
   '/text': typeof TextRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/case-study'
+    | '/contact'
     | '/history'
     | '/how-prompts-work'
     | '/image'
     | '/lab'
     | '/library'
+    | '/portfolio'
+    | '/project'
+    | '/projects'
+    | '/skills'
     | '/text'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/case-study'
+    | '/contact'
     | '/history'
     | '/how-prompts-work'
     | '/image'
     | '/lab'
     | '/library'
+    | '/portfolio'
+    | '/project'
+    | '/projects'
+    | '/skills'
     | '/text'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/case-study'
+    | '/contact'
     | '/history'
     | '/how-prompts-work'
     | '/image'
     | '/lab'
     | '/library'
+    | '/portfolio'
+    | '/project'
+    | '/projects'
+    | '/skills'
     | '/text'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CaseStudyRoute: typeof CaseStudyRoute
+  ContactRoute: typeof ContactRoute
   HistoryRoute: typeof HistoryRoute
   HowPromptsWorkRoute: typeof HowPromptsWorkRoute
   ImageRoute: typeof ImageRoute
   LabRoute: typeof LabRoute
   LibraryRoute: typeof LibraryRoute
+  PortfolioRoute: typeof PortfolioRoute
+  ProjectRoute: typeof ProjectRoute
+  ProjectsRoute: typeof ProjectsRoute
+  SkillsRoute: typeof SkillsRoute
   TextRoute: typeof TextRoute
 }
 
@@ -128,6 +219,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-study': {
+      id: '/case-study'
+      path: '/case-study'
+      fullPath: '/case-study'
+      preLoaderRoute: typeof CaseStudyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/history': {
@@ -165,6 +277,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/project': {
+      id: '/project'
+      path: '/project'
+      fullPath: '/project'
+      preLoaderRoute: typeof ProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skills': {
+      id: '/skills'
+      path: '/skills'
+      fullPath: '/skills'
+      preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/text': {
       id: '/text'
       path: '/text'
@@ -177,11 +317,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CaseStudyRoute: CaseStudyRoute,
+  ContactRoute: ContactRoute,
   HistoryRoute: HistoryRoute,
   HowPromptsWorkRoute: HowPromptsWorkRoute,
   ImageRoute: ImageRoute,
   LabRoute: LabRoute,
   LibraryRoute: LibraryRoute,
+  PortfolioRoute: PortfolioRoute,
+  ProjectRoute: ProjectRoute,
+  ProjectsRoute: ProjectsRoute,
+  SkillsRoute: SkillsRoute,
   TextRoute: TextRoute,
 }
 export const routeTree = rootRouteImport
