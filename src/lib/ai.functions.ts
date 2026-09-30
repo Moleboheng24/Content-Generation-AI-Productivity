@@ -12,7 +12,7 @@ async function wrap<T>(fn: () => Promise<T>): Promise<Result<T>> {
 }
 
 export const generateTextFn = createServerFn({ method: "POST" })
-  .inputValidator((d) => z.object({ prompt: z.string().min(5).max(4000) }).parse(d))
+  .validator((d) => z.object({ prompt: z.string().min(5).max(4000) }).parse(d))
   .handler(async ({ data }) => {
     const { completeText } = await import("./ai.server");
     return wrap(() =>
@@ -24,7 +24,7 @@ export const generateTextFn = createServerFn({ method: "POST" })
   });
 
 export const generateImageFn = createServerFn({ method: "POST" })
-  .inputValidator((d) =>
+  .validator((d) =>
     z.object({ prompt: z.string().min(5).max(4000), size: z.enum(["1024x1024", "1024x1536", "1536x1024"]) }).parse(d),
   )
   .handler(async ({ data }) => {
@@ -40,7 +40,7 @@ export type Improvement = {
 };
 
 export const improvePromptFn = createServerFn({ method: "POST" })
-  .inputValidator((d) => z.object({ prompt: z.string().min(3).max(2000) }).parse(d))
+  .validator((d) => z.object({ prompt: z.string().min(3).max(2000) }).parse(d))
   .handler(async ({ data }) => {
     const { completeText } = await import("./ai.server");
     return wrap(async () => {
