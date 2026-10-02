@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Lightbulb, Target, TriangleAlert } from "lucide-react";
+import { ArrowRight, Check, Download, ExternalLink, Lightbulb, Target, TriangleAlert } from "lucide-react";
 import { meta, PromptBlock } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 
@@ -83,11 +83,22 @@ function CaseStudy() {
           A practical prompt engineering study exploring how context, constraints, and output structure affect text and image generation in GenAI Studio.
         </p>
 
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Button asChild>
+            <Link to="/">Explore the live studio <ExternalLink className="h-4 w-4" /></Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <a href="/genai-studio-project-prompt.md" download>
+              Download project prompt <Download className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+
         <dl className="mt-8 grid gap-px overflow-hidden rounded-lg border bg-border sm:grid-cols-3">
           {[
-            ["Project", "GenAI Studio"],
+            ["Role", "Product designer & developer"],
             ["Focus", "Text + image prompting"],
-            ["Method", "Controlled A/B comparison"],
+            ["Method", "Controlled prompt comparison"],
           ].map(([term, value]) => (
             <div key={term} className="bg-card p-4">
               <dt className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{term}</dt>
@@ -203,6 +214,11 @@ function CaseStudy() {
           <Button variant="outline" asChild><Link to="/project">View project overview</Link></Button>
         </div>
       </Section>
+
+      <footer className="border-t py-8 text-xs leading-6 text-muted-foreground">
+        <p>Case study by Moleboheng Hlalele · GenAI Studio portfolio project</p>
+        <p>This study reports qualitative observations from prompt experiments; it does not claim statistically measured performance.</p>
+      </footer>
     </article>
   );
 }
