@@ -23,6 +23,7 @@ import { Route as ProjectRouteImport } from './routes/project'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as TextRouteImport } from './routes/text'
+import { Route as CaseStudiesPromptEngineeringRouteImport } from './routes/case-studies.prompt-engineering'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -94,6 +95,12 @@ const TextRoute = TextRouteImport.update({
   path: '/text',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudiesPromptEngineeringRoute =
+  CaseStudiesPromptEngineeringRouteImport.update({
+    id: '/case-studies/prompt-engineering',
+    path: '/case-studies/prompt-engineering',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/skills': typeof SkillsRoute
   '/text': typeof TextRoute
+  '/case-studies/prompt-engineering': typeof CaseStudiesPromptEngineeringRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -126,6 +134,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/skills': typeof SkillsRoute
   '/text': typeof TextRoute
+  '/case-studies/prompt-engineering': typeof CaseStudiesPromptEngineeringRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -143,6 +152,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/skills': typeof SkillsRoute
   '/text': typeof TextRoute
+  '/case-studies/prompt-engineering': typeof CaseStudiesPromptEngineeringRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/skills'
     | '/text'
+    | '/case-studies/prompt-engineering'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/skills'
     | '/text'
+    | '/case-studies/prompt-engineering'
   id:
     | '__root__'
     | '/'
@@ -193,6 +205,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/skills'
     | '/text'
+    | '/case-studies/prompt-engineering'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -210,6 +223,7 @@ export interface RootRouteChildren {
   ProjectsRoute: typeof ProjectsRoute
   SkillsRoute: typeof SkillsRoute
   TextRoute: typeof TextRoute
+  CaseStudiesPromptEngineeringRoute: typeof CaseStudiesPromptEngineeringRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -312,6 +326,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TextRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies/prompt-engineering': {
+      id: '/case-studies/prompt-engineering'
+      path: '/case-studies/prompt-engineering'
+      fullPath: '/case-studies/prompt-engineering'
+      preLoaderRoute: typeof CaseStudiesPromptEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -330,6 +351,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsRoute: ProjectsRoute,
   SkillsRoute: SkillsRoute,
   TextRoute: TextRoute,
+  CaseStudiesPromptEngineeringRoute: CaseStudiesPromptEngineeringRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
