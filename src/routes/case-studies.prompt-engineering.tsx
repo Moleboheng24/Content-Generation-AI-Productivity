@@ -262,5 +262,10 @@ function CaseStudy() {
         <Button asChild className="mt-4"><Link to="/project">View GenAI Studio Project <ArrowRight className="h-4 w-4" /></Link></Button>
       </Panel>
     </article>
+      </div>
+      <footer className="border-t py-6 text-center font-mono text-[11px] text-muted-foreground">
+        Prompt Engineering Case Study · Moleboheng Hlalele
+      </footer>
+    </div>
   );
 }
