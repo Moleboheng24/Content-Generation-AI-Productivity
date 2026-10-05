@@ -22,6 +22,7 @@ const portfolioNav = [
   { to: "/projects", label: "Projects", icon: FolderKanban },
   { to: "/project", label: "GenAI Studio Project", icon: Briefcase },
   { to: "/case-study", label: "Case Study", icon: FileText },
+  { to: "/case-studies/prompt-engineering", label: "Prompt Engineering Case Study", icon: FlaskConical },
   { to: "/skills", label: "Skills", icon: Sparkles },
   { to: "/contact", label: "Contact", icon: Mail },
 ] as const;

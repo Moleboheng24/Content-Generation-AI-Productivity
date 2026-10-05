@@ -13,11 +13,9 @@ export const Route = createFileRoute("/case-studies/prompt-engineering")({
   component: CaseStudy,
 });
 
-const NAV = ["Introduction", "Project Context", "Problem Statement", "Objectives", "What Is Prompt Engineering?", "Text Generation Experiment", "Image Generation Experiment", "Text vs Image Prompting", "Prompt Refinement Process", "Prompt Engineering Techniques", "What Worked", "What Did Not Work", "Challenges", "Lessons Learned", "Future Improvements"];
-
 function Section({ n, title, children }: { n: string; title: string; children: ReactNode }) {
   return (
-    <section id={`s${n}`} className="fade-up scroll-mt-24">
+    <section className="fade-up scroll-mt-20">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{n}</p>
       <h2 className="mt-1 mb-4 text-2xl font-semibold tracking-tight">{title}</h2>
       <div className="space-y-4 text-muted-foreground leading-relaxed">{children}</div>
@@ -102,22 +100,7 @@ const STEPS = ["Write", "Test", "Evaluate", "Refine", "Repeat"];
 
 function CaseStudy() {
   return (
-    <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-30 border-b bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
-          <a href="#top" className="font-semibold tracking-tight">Moleboheng Hlalele <span className="font-mono text-xs text-primary">/ Case Study</span></a>
-          <span className="hidden font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:block">Prompt Engineering</span>
-        </div>
-      </header>
-      <div id="top" className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-8 lg:grid-cols-[220px_1fr]">
-        <nav aria-label="Sections" className="hidden lg:block">
-          <ol className="sticky top-24 space-y-1 border-l pl-4 text-sm">
-            {NAV.map((t, i) => (
-              <li key={t}><a href={`#s${String(i + 1).padStart(2, "0")}`} className="block py-1 text-muted-foreground transition-colors hover:text-primary"><span className="mr-2 font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>{t}</a></li>
-            ))}
-          </ol>
-        </nav>
-    <article className="min-w-0 max-w-4xl space-y-14 pb-12">
+    <article className="mx-auto max-w-4xl space-y-14 pb-12">
       <header className="fade-up rounded-3xl border bg-card p-8 sm:p-12">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Portfolio / Case Studies</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Prompt Engineering Case Study</h1>
@@ -150,25 +133,7 @@ function CaseStudy() {
         <Tags items={["Audience", "Purpose", "Tone", "Length", "Context", "Desired structure"]} />
       </Section>
 
-      <Section n="04" title="Objectives">
-        <p>The case study set out to:</p>
-        <ul className="list-disc space-y-1 pl-5">
-          <li>Understand how Generative AI responds to different kinds of instructions.</li>
-          <li>Compare simple prompts with structured, detailed prompts.</li>
-          <li>Test prompt engineering on both text and image generation.</li>
-          <li>Identify which prompt elements make the biggest difference to output quality.</li>
-          <li>Document a repeatable process for writing and improving prompts.</li>
-        </ul>
-      </Section>
-
-      <Section n="05" title="What Is Prompt Engineering?">
-        <p><strong className="text-foreground">Prompt engineering</strong> is the practice of designing and refining the instructions given to an AI model so that it produces accurate, relevant and consistent results.</p>
-        <p>A strong prompt usually combines a few key elements:</p>
-        <ElementList rows={[["Role","Who the AI should act as."],["Context","Background the AI needs to understand the situation."],["Task","Exactly what should be produced."],["Audience","Who the output is for."],["Constraints","Limits such as length, tone or things to avoid."],["Output format","How the result should be structured."]]} />
-        <Callout>Prompt engineering is less about clever wording and more about clear communication — treating a prompt like a brief or a specification.</Callout>
-      </Section>
-
-      <Section n="06" title="Text Generation Experiment">
+      <Section n="04" title="Text Generation Experiment">
         <p>The initial prompt gave the model a topic but no direction. Results were generic, overly broad, and the length and tone changed between attempts.</p>
         <div className="grid gap-4 md:grid-cols-2">
           <PromptCard label="Before" tone="before" text={TEXT_BEFORE} />
@@ -187,7 +152,7 @@ function CaseStudy() {
         <Callout>Defining the audience and output structure made the biggest difference — the post went from generic to something I could actually publish.</Callout>
       </Section>
 
-      <Section n="07" title="Image Generation Experiment">
+      <Section n="05" title="Image Generation Experiment">
         <p>“A futuristic city” could mean almost anything — the style, time of day, viewpoint and mood were all left to chance, so every result looked different.</p>
         <div className="grid gap-4 md:grid-cols-2">
           <PromptCard label="Before" tone="before" text={IMG_BEFORE} />
@@ -206,7 +171,7 @@ function CaseStudy() {
         <Callout>Concrete visual language (lighting, camera angle, composition) works better than subjective words like “beautiful” or “amazing”.</Callout>
       </Section>
 
-      <Section n="08" title="Text vs Image Prompting">
+      <Section n="06" title="Text vs Image Prompting">
         <div className="grid gap-4 md:grid-cols-2">
           <Panel><h3 className="mb-3 font-semibold text-foreground">Text generation</h3><Tags items={["Context", "Audience", "Tone", "Constraints", "Structure", "Desired output"]} /></Panel>
           <Panel><h3 className="mb-3 font-semibold text-foreground">Image generation</h3><Tags items={["Subject", "Environment", "Style", "Lighting", "Composition", "Perspective", "Mood"]} /></Panel>
@@ -214,7 +179,7 @@ function CaseStudy() {
         <p>Both use Generative AI, but the information the model needs reflects the type of output: text prompts describe meaning and communication, while image prompts describe what can be seen.</p>
       </Section>
 
-      <Section n="09" title="Prompt Refinement Process">
+      <Section n="07" title="Prompt Refinement Process">
         <ol className="flex flex-wrap items-center gap-2">
           {STEPS.map((s, i) => (
             <li key={s} className="flex items-center gap-2">
@@ -226,7 +191,7 @@ function CaseStudy() {
         <p>Rather than expecting the first prompt to be perfect, I treated each prompt as a draft: test it, review the output against what I wanted, change one thing at a time, and try again.</p>
       </Section>
 
-      <Section n="10" title="Prompt Engineering Techniques">
+      <Section n="08" title="Prompt Engineering Techniques">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {TECHNIQUES.map(([t, d]) => (
             <Panel key={t} className="transition-colors hover:border-primary/60">
@@ -237,7 +202,7 @@ function CaseStudy() {
         </div>
       </Section>
 
-      <Section n="11" title="What Worked">
+      <Section n="09" title="What Worked">
         <ul className="space-y-2">
           {["Providing relevant context", "Being specific about the desired result", "Defining constraints", "Specifying the output format", "Iteratively improving prompts"].map((w) => (
             <li key={w} className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{w}</li>
@@ -245,12 +210,12 @@ function CaseStudy() {
         </ul>
       </Section>
 
-      <Section n="12" title="What Did Not Work">
+      <Section n="10" title="What Did Not Work">
         <p>Making a prompt longer did not automatically make it better. Overloaded prompts with conflicting or irrelevant details often confused the model and produced worse results.</p>
         <Callout><strong>Key lesson:</strong> Relevant specificity is more valuable than unnecessary complexity.</Callout>
       </Section>
 
-      <Section n="13" title="Challenges">
+      <Section n="11" title="Challenges">
         <div className="grid gap-3 sm:grid-cols-2">
           {["Understanding AI-generated outputs", "Prompt ambiguity", "Controlling image-generation results", "Evaluating output quality", "Understanding API integration", "Dealing with AI limitations"].map((c) => (
             <div key={c} className="rounded-xl border bg-card p-3 text-sm text-foreground/90">{c}</div>
@@ -258,7 +223,7 @@ function CaseStudy() {
         </div>
       </Section>
 
-      <Section n="14" title="Lessons Learned">
+      <Section n="12" title="Lessons Learned">
         <ElementList rows={[
           ["Generative AI", "It predicts likely content from patterns — powerful, but not always correct."],
           ["Prompt engineering", "Prompts work like specifications: clearer specs, better results."],
@@ -270,7 +235,7 @@ function CaseStudy() {
         ]} />
       </Section>
 
-      <Section n="15" title="Future Improvements">
+      <Section n="13" title="Future Improvements">
         <Tags items={["Prompt version history", "Prompt comparison", "Multiple AI models", "Output evaluation", "Prompt sharing", "Advanced image controls", "AI prompt suggestions", "Analytics"]} />
       </Section>
 
@@ -280,10 +245,5 @@ function CaseStudy() {
         <Button asChild className="mt-4"><Link to="/project">View GenAI Studio Project <ArrowRight className="h-4 w-4" /></Link></Button>
       </Panel>
     </article>
-      </div>
-      <footer className="border-t py-6 text-center font-mono text-[11px] text-muted-foreground">
-        Prompt Engineering Case Study · Moleboheng Hlalele
-      </footer>
-    </div>
   );
 }
