@@ -13,9 +13,11 @@ export const Route = createFileRoute("/case-studies/prompt-engineering")({
   component: CaseStudy,
 });
 
+const NAV = ["Introduction", "Project Context", "Problem Statement", "Text Generation Experiment", "Image Generation Experiment", "Text vs Image Prompting", "Prompt Refinement Process", "Prompt Engineering Techniques", "What Worked", "What Did Not Work", "Challenges", "Lessons Learned", "Future Improvements"];
+
 function Section({ n, title, children }: { n: string; title: string; children: ReactNode }) {
   return (
-    <section className="fade-up scroll-mt-20">
+    <section id={`s${n}`} className="fade-up scroll-mt-24">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{n}</p>
       <h2 className="mt-1 mb-4 text-2xl font-semibold tracking-tight">{title}</h2>
       <div className="space-y-4 text-muted-foreground leading-relaxed">{children}</div>
@@ -100,7 +102,22 @@ const STEPS = ["Write", "Test", "Evaluate", "Refine", "Repeat"];
 
 function CaseStudy() {
   return (
-    <article className="mx-auto max-w-4xl space-y-14 pb-12">
+    <div className="min-h-screen bg-background">
+      <header className="sticky top-0 z-30 border-b bg-background/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
+          <a href="#top" className="font-semibold tracking-tight">Moleboheng Hlalele <span className="font-mono text-xs text-primary">/ Case Study</span></a>
+          <span className="hidden font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:block">Prompt Engineering</span>
+        </div>
+      </header>
+      <div id="top" className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-8 lg:grid-cols-[220px_1fr]">
+        <nav aria-label="Sections" className="hidden lg:block">
+          <ol className="sticky top-24 space-y-1 border-l pl-4 text-sm">
+            {NAV.map((t, i) => (
+              <li key={t}><a href={`#s${String(i + 1).padStart(2, "0")}`} className="block py-1 text-muted-foreground transition-colors hover:text-primary"><span className="mr-2 font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>{t}</a></li>
+            ))}
+          </ol>
+        </nav>
+    <article className="min-w-0 max-w-4xl space-y-14 pb-12">
       <header className="fade-up rounded-3xl border bg-card p-8 sm:p-12">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Portfolio / Case Studies</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Prompt Engineering Case Study</h1>
