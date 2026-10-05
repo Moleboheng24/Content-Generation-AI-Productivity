@@ -22,11 +22,6 @@ function Projects() {
           <h2 className="mt-2 text-lg font-semibold">Generative AI & Prompt Engineering Case Study</h2>
           <p className="mt-2 text-sm text-muted-foreground">Controlled experiments comparing initial and improved prompts.</p>
         </Link>
-        <Link to="/case-studies/prompt-engineering" className="rounded-2xl border bg-card p-6 hover:border-primary/60">
-          <p className="font-mono text-xs text-primary">Case study</p>
-          <h2 className="mt-2 text-lg font-semibold">Prompt Engineering Case Study</h2>
-          <p className="mt-2 text-sm text-muted-foreground">Exploring Generative AI through text and image generation.</p>
-        </Link>
         {[1].map((i) => (
           <div key={i} className="grid min-h-40 place-items-center rounded-2xl border border-dashed text-sm text-muted-foreground">
             <span className="flex items-center gap-2"><Plus className="h-4 w-4" /> Future project</span>
