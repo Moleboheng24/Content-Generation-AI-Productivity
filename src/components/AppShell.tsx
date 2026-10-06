@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import {
   LayoutDashboard, PenLine, ImageIcon, FlaskConical, GitCompare, Library, History,
-  Briefcase, FileText, User, Menu, X, Sparkles, Mail, FolderKanban, Award,
+  Briefcase, FileText, Menu, X, Mail,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -16,18 +16,14 @@ const studioNav = [
   { to: "/history", label: "History", icon: History },
 ] as const;
 
-const portfolioNav = [
-  { to: "/portfolio", label: "Home", icon: User },
-  { to: "/about", label: "About", icon: Award },
-  { to: "/projects", label: "Projects", icon: FolderKanban },
-  { to: "/project", label: "GenAI Studio Project", icon: Briefcase },
+const projectNav = [
+  { to: "/project", label: "GenAI Project", icon: Briefcase },
   { to: "/case-study", label: "Case Study", icon: FileText },
   { to: "/case-studies/prompt-engineering", label: "Prompt Engineering Case Study", icon: FlaskConical },
-  { to: "/skills", label: "Skills", icon: Sparkles },
   { to: "/contact", label: "Contact", icon: Mail },
 ] as const;
 
-function NavGroup({ title, items, onNav }: { title: string; items: readonly { to: string; label: string; icon: typeof User }[]; onNav: () => void }) {
+function NavGroup({ title, items, onNav }: { title: string; items: readonly { to: string; label: string; icon: typeof LayoutDashboard }[]; onNav: () => void }) {
   return (
     <div>
       <p className="px-3 pb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{title}</p>
@@ -71,7 +67,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mb-8 hidden lg:block"><Brand /></div>
         <nav className="space-y-6">
           <NavGroup title="Studio" items={studioNav} onNav={close} />
-          <NavGroup title="Portfolio" items={portfolioNav} onNav={close} />
+          <NavGroup title="Project" items={projectNav} onNav={close} />
         </nav>
         <p className="mt-8 px-3 font-mono text-[10px] leading-relaxed text-muted-foreground">
           Explore. Generate.<br />Experiment. Learn.

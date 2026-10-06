@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const EMAIL = "your.email@example.com";
+const EMAIL = "molebohenghlalele114@gmail.com";
 
 function Contact() {
   const [f, setF] = useState({ name: "", email: "", message: "" });
@@ -21,15 +21,15 @@ function Contact() {
     e.preventDefault();
     if (!f.name.trim() || !/^\S+@\S+\.\S+$/.test(f.email) || f.message.trim().length < 10) { setErr("Please add your name, a valid email and a message of at least 10 characters."); return; }
     setErr("");
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Portfolio enquiry from " + f.name)}&body=${encodeURIComponent(f.message + "\n\n— " + f.email)}`;
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Enquiry from " + f.name)}&body=${encodeURIComponent(f.message + "\n\n— " + f.email)}`;
     toast.success("Opening your email app…");
   }
   return (
     <div>
-      <PageHeader kicker="Portfolio / Contact" title="Let's talk" />
+      <PageHeader kicker="Contact" title="Let's talk" />
       <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
         <Panel className="space-y-3">
-          {[[Linkedin, "LinkedIn", "https://linkedin.com/in/your-profile"], [Github, "GitHub", "https://github.com/your-username"], [Mail, EMAIL, `mailto:${EMAIL}`]].map(([Icon, l, h]) => {
+          {[[Linkedin, "LinkedIn", "https://www.linkedin.com/in/moleboheng-hlalele-70b739360"], [Github, "GitHub", "https://github.com/Moleboheng24"], [Mail, EMAIL, `mailto:${EMAIL}`]].map(([Icon, l, h]) => {
             const I = Icon as typeof Mail;
             return <a key={l as string} href={h as string} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-lg border p-3 text-sm hover:border-primary/60"><I className="h-4 w-4 text-primary" />{l as string}</a>;
           })}

@@ -75,7 +75,7 @@ function CaseStudy() {
   return (
     <article className="fade-up">
       <header className="pb-10 pt-2 sm:pb-14">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Portfolio / Case Study 01</p>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case Study 01</p>
         <h1 className="mt-4 max-w-4xl text-3xl font-semibold leading-tight sm:text-5xl">
           Turning vague ideas into useful AI outputs
         </h1>
@@ -216,7 +216,7 @@ function CaseStudy() {
       </Section>
 
       <footer className="border-t py-8 text-xs leading-6 text-muted-foreground">
-        <p>Case study by Moleboheng Hlalele · GenAI Studio portfolio project</p>
+        <p>Case study by Moleboheng Hlalele · GenAI Studio project</p>
         <p>This study reports qualitative observations from prompt experiments; it does not claim statistically measured performance.</p>
       </footer>
     </article>

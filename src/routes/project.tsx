@@ -3,7 +3,7 @@ import { meta, PageHeader, Panel } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/project")({
-  head: () => meta("GenAI Studio Project Overview — Portfolio", "Overview, objectives, challenges and lessons from building GenAI Studio."),
+  head: () => meta("GenAI Studio Project Overview", "Overview, objectives, challenges and lessons from building GenAI Studio."),
   component: ProjectPage,
 });
 
@@ -15,7 +15,7 @@ const Ul = ({ items }: { items: string[] }) => <ul className="list-disc space-y-
 function ProjectPage() {
   return (
     <div>
-      <PageHeader kicker="Portfolio / Project" title="GenAI Studio — Text & Image Generation Lab">Explore. Generate. Experiment. Learn.</PageHeader>
+      <PageHeader kicker="GenAI Project" title="GenAI Studio — Text & Image Generation Lab">Explore. Generate. Experiment. Learn.</PageHeader>
       <div className="grid gap-4 md:grid-cols-2">
         <S title="Project Overview"><p>GenAI Studio explores practical applications of Generative AI through text generation, image generation and prompt engineering — built as a working product, not a static demo.</p></S>
         <S title="Problem Statement"><p>Generative AI can produce very different results depending on how instructions are written. This project explores how structured prompting improves the quality and consistency of AI-generated content.</p></S>
