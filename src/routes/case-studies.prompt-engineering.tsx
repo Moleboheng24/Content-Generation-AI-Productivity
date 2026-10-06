@@ -102,7 +102,7 @@ function CaseStudy() {
   return (
     <article className="mx-auto max-w-4xl space-y-14 pb-12">
       <header className="fade-up rounded-3xl border bg-card p-8 sm:p-12">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Portfolio / Case Studies</p>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case Studies</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Prompt Engineering Case Study</h1>
         <p className="mt-3 text-lg text-foreground/85">Exploring Generative AI Through Text and Image Generation</p>
         <p className="mt-4 max-w-2xl text-muted-foreground">
